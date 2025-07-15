@@ -1,0 +1,92 @@
+[
+  {
+    "Type": "Income",
+    "Amount": 1000,
+    "Description": "Salary",
+    "Date": "2024-01-01T00:00:00",
+    "Category": {
+      "Name": "Job"
+    }
+  },
+  {
+    "Type": "Income",
+    "Amount": 200,
+    "Description": "Freelance Project",
+    "Date": "2024-01-10T00:00:00",
+    "Category": {
+      "Name": "Side Hustle"
+    }
+  },
+  {
+    "Type": "Expense",
+    "Amount": 50,
+    "Description": "Groceries",
+    "Date": "2024-01-11T00:00:00",
+    "Category": {
+      "Name": "Food"
+    }
+  },
+  {
+    "Type": "Expense",
+    "Amount": 70,
+    "Description": "Internet Bill",
+    "Date": "2024-01-12T00:00:00",
+    "Category": {
+      "Name": "Utilities"
+    }
+  },
+  {
+    "Type": "Expense",
+    "Amount": 150,
+    "Description": "Electricity",
+    "Date": "2024-01-15T00:00:00",
+    "Category": {
+      "Name": "Utilities"
+    }
+  },
+  {
+    "Type": "Income",
+    "Amount": 500,
+    "Description": "Bonus",
+    "Date": "2024-01-20T00:00:00",
+    "Category": {
+      "Name": "Job"
+    }
+  },
+  {
+    "Type": "Expense",
+    "Amount": 30,
+    "Description": "Transport",
+    "Date": "2024-01-21T00:00:00",
+    "Category": {
+      "Name": "Travel"
+    }
+  },
+  {
+    "Type": "Expense",
+    "Amount": 40,
+    "Description": "Gym",
+    "Date": "2024-01-22T00:00:00",
+    "Category": {
+      "Name": "Health"
+    }
+  },
+  {
+    "Type": "Expense",
+    "Amount": 100,
+    "Description": "Gift",
+    "Date": "2024-01-25T00:00:00",
+    "Category": {
+      "Name": "Friends"
+    }
+  },
+  {
+    "Type": "Income",
+    "Amount": 250,
+    "Description": "Consulting",
+    "Date": "2024-01-27T00:00:00",
+    "Category": {
+      "Name": "Work"
+    }
+  }
+]

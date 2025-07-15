@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using PersonalFinanceApp.Models; // Assuming your core logic is in this namespace
@@ -15,6 +16,23 @@ namespace PersonalFinanceApp.Wpf
         public MainWindow()
         {
             InitializeComponent();
+            // ✅ Load data from file on startup
+            string filePath = Path.GetFullPath(
+    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\Data\transactions.json")
+);
+            // MessageBox.Show($"Looking for file at:\n{filePath}");
+            if (System.IO.File.Exists(filePath))
+            {
+                _transactionManager.LoadFromFile(filePath);
+                MessageBox.Show($"Loaded {_transactionManager.GetTransactions().Count()} transactions.");  // Debug line
+                RefreshUI();
+            }
+
+            // ✅ Save to file on close
+            this.Closing += (s, e) =>
+            {
+                _transactionManager.SaveToFile(filePath);
+            };
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -62,6 +80,14 @@ namespace PersonalFinanceApp.Wpf
             TypeComboBox.SelectedIndex = -1;
 
             MessageBox.Show($"{type} added!");
+        }
+        private void RefreshUI()
+        {
+            TransactionGrid.ItemsSource = null;
+            TransactionGrid.ItemsSource = _transactionManager.GetTransactions();
+            TotalIncomeText.Text = $"{_transactionManager.GetTotalIncome():C}";
+            TotalExpensesText.Text = $"{_transactionManager.GetTotalExpenses():C}";
+            NetBalanceText.Text = $"{_transactionManager.GetNetBalance():C}";
         }
 
     }

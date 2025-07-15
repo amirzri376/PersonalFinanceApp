@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace PersonalFinanceApp.Models
 {
@@ -10,14 +7,15 @@ namespace PersonalFinanceApp.Models
     {
         public string Name { get; }
 
+        [JsonConstructor]
         public Category(string name)
         {
             Name = name;
         }
+
         public override string ToString()
         {
             return Name;
         }
-
     }
 }

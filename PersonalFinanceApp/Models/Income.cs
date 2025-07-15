@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace PersonalFinanceApp.Models
 {
     public class Income : Transaction
     {
-        public Income(decimal amount, string description, DateTime date, Category? category = null) : base(amount, description, date, category)
+        [JsonConstructor]
+        public Income(decimal amount, string description, DateTime date, Category? category = null)
+            : base(amount, description, date, category)
         {
         }
 

@@ -1,6 +1,19 @@
-﻿using PersonalFinanceApp.Models;
+﻿using System;
+using System.IO;
+using System.Linq;
+using PersonalFinanceApp.Models;
 
 TransactionManager manager = new();
+string dataFile = Path.GetFullPath(
+    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\Data\transactions.json")
+);
+Console.WriteLine($"Looking for file at: {dataFile}");
+
+// Load existing transactions if file exists
+if (File.Exists(dataFile))
+{
+    manager.LoadFromFile(dataFile);
+}
 
 var clock = new SystemClock();
 var writer = new FileLogWriter("log.txt");
@@ -36,6 +49,8 @@ while (true)
             ShowBalanceSummary(manager);
             break;
         case "0":
+            manager.SaveToFile(dataFile);
+            logger.Log("Application exited.");
             return;
         default:
             Console.WriteLine("Invalid option. Try again.");
