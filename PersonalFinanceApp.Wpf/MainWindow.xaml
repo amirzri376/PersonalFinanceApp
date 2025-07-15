@@ -13,12 +13,13 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <!-- Input Form -->
         <StackPanel x:Name="InputPanel"
-            Grid.Row="0"
-            Orientation="Vertical"
-            Margin="20"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left">
+                    Grid.Row="0"
+                    Orientation="Vertical"
+                    Margin="20"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
 
             <!-- Amount -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
@@ -55,16 +56,18 @@
 
             <!-- Add Button -->
             <Button x:Name="AddButton"
-            Content="Add"
-            Width="80"
-            Margin="0,10,0,0"
-            Click="AddButton_Click"/>
+                    Content="Add"
+                    Width="80"
+                    Margin="0,10,0,0"
+                    Click="AddButton_Click"/>
         </StackPanel>
+
+        <!-- Data Grid for Transactions -->
         <DataGrid x:Name="TransactionGrid"
-          Grid.Row="1"
-          AutoGenerateColumns="False"
-          IsReadOnly="True"
-          Margin="20,0,20,10">
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Margin="20,0,20,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*" />
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="*" />
@@ -73,13 +76,21 @@
                 <DataGridTextColumn Header="Category" Binding="{Binding Category.Name}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBlock x:Name="BalanceTextBlock"
-           Grid.Row="2"
-           FontSize="16"
-           FontWeight="Bold"
-           Margin="20,0,0,10"
-           Text="Balance: 0.00" />
 
+        <!-- Totals Summary -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    Margin="20,0,0,10">
+            <TextBlock Text="Income:" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock x:Name="TotalIncomeText" VerticalAlignment="Center" Margin="10,0,20,0"/>
+
+            <TextBlock Text="Expenses:" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock x:Name="TotalExpensesText" VerticalAlignment="Center" Margin="10,0,20,0"/>
+
+            <TextBlock Text="Balance:" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock x:Name="NetBalanceText" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        </StackPanel>
 
     </Grid>
 </Window>
