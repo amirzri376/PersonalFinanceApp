@@ -28,7 +28,7 @@ namespace PersonalFinanceApp.Wpf
                 RefreshUI();
             }
 
-            // ✅ Save to file on close
+            // Save to file on close
             this.Closing += (s, e) =>
             {
                 _transactionManager.SaveToFile(filePath);
