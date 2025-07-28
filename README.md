@@ -66,6 +66,24 @@ Ensure the following:
 
 - All user actions in the Console app are logged to `log.txt`.
 
+## Unit Testing
+This project includes unit tests, covering:
+
+Tests verify the correctness of core financial calculations:
+
+GetNetBalance_ReturnsCorrectDifference: Confirms net balance = income − expenses.
+
+GetTotalIncome_ReturnsSumOfIncomes: Validates that all income transactions are summed correctly.
+
+GetTotalExpenses_ReturnsSumOfExpenses: Checks that only expenses are summed, even in presence of mixed transactions.
+
+The Logger class was refactored to depend on IClock and ILoggerWriter interfaces, making it testable. A separate test validates that:
+
+Log messages are correctly formatted.
+
+Each message includes an accurate timestamp.
+
+
 ## Future Improvements
 
 - Export to CSV or PDF
